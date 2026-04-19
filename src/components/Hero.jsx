@@ -36,8 +36,8 @@ const Hero = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background with Industrial Image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary/70 to-primary/40 z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b  z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r to-transparent z-10"></div>
         <img
           src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2670&auto=format&fit=crop"
           alt="Industrial Factory"
@@ -77,11 +77,11 @@ const Hero = () => {
 
           <p
             ref={descRef}
-            className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed"
+            className="text-lg md:text-xl text-white mb-10 max-w-2xl leading-relaxed"
             style={{ opacity: 0 }}
           >
             We deliver high-performance coating solutions for petrochemical, manufacturing,
-            and industrial sectors. Ensuring durability, safety, and operational excellence since 2010.
+            and industrial sectors. Ensuring durability, safety, {<br />}and operational excellence since 2010.
           </p>
 
           <motion.div
