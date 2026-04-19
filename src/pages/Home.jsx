@@ -13,8 +13,8 @@ import IndustriesSection from '../components/IndustriesSection';
 import TechnologiesSection from '../components/TechnologiesSection';
 import BenefitsSection from '../components/BenefitsSection';
 import InnovationSection from '../components/InnovationSection';
-import TeamSection from '../components/TeamSection';
 import TechnicalSection from '../components/TechnicalSection';
+import { featuredProjects } from '../data/products';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,70 +49,47 @@ const Home = () => {
     return () => ctx.revert();
   }, []);
 
+  // FIXED: Service card links now match actual product slugs
   const services = [
     {
       title: 'Epoxy Floor Coating',
       description: 'High-performance epoxy solutions for industrial floors, offering superior durability, chemical resistance, and ease of maintenance.',
       icon: Layers,
-      link: '/services/epoxy-floor',
+      link: '/products/epoxy-floor-coating',
     },
     {
       title: 'Pipe Internal Coating',
       description: 'Specialized internal coating for pipelines to prevent corrosion, improve flow efficiency, and extend infrastructure lifespan.',
       icon: Droplet,
-      link: '/services/pipe-coating',
+      link: '/products/pipe-internal-coating',
     },
     {
       title: 'Anti-Corrosion Coating',
       description: 'Advanced protection systems designed to safeguard steel structures and equipment from harsh industrial environments.',
       icon: Shield,
-      link: '/services/anti-corrosion',
+      link: '/products/anti-corrosion-coating',
     },
     {
       title: 'Chemical Resistant Flooring',
       description: 'Heavy-duty flooring systems engineered to withstand aggressive chemicals, acids, and solvents in processing plants.',
       icon: Activity,
-      link: '/services/chemical-resistant',
+      link: '/products/chemical-resistant-flooring',
     },
     {
-      title: 'Industrial Flooring',
-      description: 'Comprehensive flooring solutions tailored for warehouses, factories, and assembly lines to handle heavy loads.',
+      title: 'Waterproofing Solutions',
+      description: 'Advanced membrane and liquid-applied waterproofing that protects buildings from leaks, seepage, and dampness.',
       icon: Anchor,
-      link: '/services/industrial-flooring',
+      link: '/products/waterproofing',
     },
   ];
 
   const features = [
-    '15+ Years Experience',
+    '5+ Years Experience',
     'ISO Certified Processes',
     'Advanced Technology',
     'Expert Team',
     'On-Time Delivery',
     'Safety Compliant',
-  ];
-
-  const projects = [
-    {
-      id: 1,
-      name: 'Adani Power Plant Flooring',
-      category: 'Industrial Flooring',
-      description: 'Complete epoxy flooring system for a 500MW thermal power plant facility.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2670&auto=format&fit=crop',
-    },
-    {
-      id: 2,
-      name: 'Reliance Pipeline Protection',
-      category: 'Pipe Coating',
-      description: '120km internal pipeline coating for petrochemical transport infrastructure.',
-      image: 'https://images.unsplash.com/photo-1535581652167-3d6b9324a6e8?q=80&w=2670&auto=format&fit=crop',
-    },
-    {
-      id: 3,
-      name: 'L&T Manufacturing Unit',
-      category: 'Epoxy Coating',
-      description: 'Anti-corrosion coating for heavy machinery and structural steelwork.',
-      image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2670&auto=format&fit=crop',
-    },
   ];
 
   return (
@@ -170,10 +147,10 @@ const Home = () => {
               <h3 className="text-2xl font-bold text-white mb-4">Need a Custom Solution?</h3>
               <p className="text-gray-300 mb-8">We offer tailored coating services for unique industrial requirements.</p>
               <Link
-                to="/services"
+                to="/products"
                 className="px-6 py-3 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition-colors"
               >
-                View All Services
+                View All Products
               </Link>
             </motion.div>
           </div>
@@ -186,7 +163,7 @@ const Home = () => {
       {/* 6. COATING TECHNOLOGIES */}
       <TechnologiesSection />
 
-      {/* 7. FEATURED PROJECTS (UPGRADED) */}
+      {/* 7. FEATURED PROJECTS */}
       <section ref={projectsRef} className="py-24 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -195,13 +172,13 @@ const Home = () => {
               subtitle="Portfolio"
               center={false}
             />
-            <Link to="/projects" className="hidden md:flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors mb-12">
+            <Link to="/gallery" className="hidden md:flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors mb-12">
               View All Projects <ArrowRight size={20} />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {featuredProjects.map((project) => (
               <div
                 key={project.id}
                 className="project-card group relative overflow-hidden rounded-xl shadow-lg aspect-[4/3] cursor-pointer"
@@ -212,6 +189,7 @@ const Home = () => {
                   alt={project.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
+                  referrerPolicy="no-referrer"
                 />
                 {/* Always-visible bottom gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
@@ -231,7 +209,7 @@ const Home = () => {
           </div>
 
           <div className="mt-8 text-center md:hidden">
-            <Link to="/projects" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
+            <Link to="/gallery" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors">
               View All Projects <ArrowRight size={20} />
             </Link>
           </div>
@@ -285,10 +263,11 @@ const Home = () => {
             >
               <div className="absolute inset-0 bg-accent rounded-2xl transform rotate-3 translate-x-4 translate-y-4 opacity-50"></div>
               <img
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2670&auto=format&fit=crop"
-                alt="Industrial Professional"
+                src="https://lh3.googleusercontent.com/d/1GZeW4TbXUnDYNIe2kiS2OUbpX1sWk0DP=w800"
+                alt="Anutham Coating Industrial Operations"
                 className="w-full h-auto rounded-2xl shadow-2xl relative z-10"
                 loading="lazy"
+                referrerPolicy="no-referrer"
               />
 
               <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-xl shadow-xl z-20 hidden md:block max-w-xs">
@@ -300,7 +279,7 @@ const Home = () => {
                   </div>
                   <span className="font-bold text-primary">5.0/5</span>
                 </div>
-                <p className="text-gray-600 text-sm italic">"Exceptional quality and timely delivery. Anutham is our go-to for all coating needs."</p>
+                <p className="text-gray-600 text-sm italic">&quot;Exceptional quality and timely delivery. Anutham is our go-to for all coating needs.&quot;</p>
                 <p className="text-gray-900 font-bold text-sm mt-3">- Project Manager, Adani</p>
               </div>
             </motion.div>
@@ -314,10 +293,9 @@ const Home = () => {
       {/* 11. TECHNICAL CAPABILITY */}
       <TechnicalSection />
 
-      {/* 12. TEAM */}
-      <TeamSection />
+      {/* TEAM SECTION REMOVED per business request */}
 
-      {/* 13. CTA SECTION (UPGRADED) */}
+      {/* 12. CTA SECTION */}
       <section className="py-24 bg-gradient-to-br from-primary via-[#0d3a5c] to-primary text-white text-center relative overflow-hidden">
         {/* Decorative */}
         <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -366,7 +344,7 @@ const Home = () => {
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
               <Link
-                to="/projects"
+                to="/gallery"
                 className="px-10 py-5 bg-transparent border-2 border-white/30 hover:border-white text-white font-bold text-lg rounded-xl hover:bg-white/10 transition-all duration-300 inline-block"
               >
                 View Our Work

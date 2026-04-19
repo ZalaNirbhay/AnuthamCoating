@@ -5,6 +5,19 @@ export const PHONE_NUMBER = '+917359226006';
 export const PHONE_DISPLAY = '+91 73592 26006';
 export const EMAIL = 'anuthamcoatings@gmail.com';
 
+export const ADDRESS = {
+  label: 'Head Office: Vadodara, Gujarat',
+  full: 'House No. 1337/1, Block No 685, Survey No. 474/P1, Shiv Shakti Compound, Opp Banker Brothers Estate 2, Ranoli Station Road, Padamala, Vadodara, Gujarat – 391350, India',
+  line1: 'House No. 1337/1, Block No 685,',
+  line2: 'Survey No. 474/P1, Shiv Shakti Compound,',
+  line3: 'Opp Banker Brothers Estate 2,',
+  line4: 'Ranoli Station Road, Padamala,',
+  line5: 'Vadodara, Gujarat – 391350, India',
+};
+
+// Helper to generate Drive thumbnail URL
+const driveUrl = (id) => `https://lh3.googleusercontent.com/d/${id}=w800`;
+
 export const products = [
   {
     slug: 'epoxy-floor-coating',
@@ -30,10 +43,14 @@ export const products = [
       'Parking Structures',
       'Commercial Showrooms',
     ],
+    coverImage: driveUrl('1YGIEHZ7oVzS4RNcePv1Z4BwHpC4nbpa0'),
     gallery: [
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=800&auto=format&fit=crop',
+      driveUrl('1YGIEHZ7oVzS4RNcePv1Z4BwHpC4nbpa0'),
+      driveUrl('1GZeW4TbXUnDYNIe2kiS2OUbpX1sWk0DP'),
+      driveUrl('1lDXHltPuioKkvbtcBAM-Nn0bE2e6WWRC'),
+      driveUrl('1L2zItTxsbsjMfPZDnk1usCSdZxhhAKRl'),
+      driveUrl('15Ug5lJIFO1SVmMbweeRVxUaimKMlhZty'),
+      driveUrl('18la6qIlLeXUBExPvj4Ot8y193FQvVekk'),
     ],
     category: 'Epoxy Coating',
   },
@@ -61,10 +78,11 @@ export const products = [
       'Commercial Buildings',
       'Industrial Equipment',
     ],
+    coverImage: driveUrl('1acsl-Y9Q4tWHPjML0ySTJgrgQLgKwVJ5'),
     gallery: [
-      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1535581652167-3d6b9324a6e8?q=80&w=800&auto=format&fit=crop',
+      driveUrl('1acsl-Y9Q4tWHPjML0ySTJgrgQLgKwVJ5'),
+      driveUrl('1swSPyKsqxEztbLfJ4nsAyz51i6WcizDH'),
+      driveUrl('18Q5vUUX1PlQZO5-rKBMT3UM5LH7Xfj89'),
     ],
     category: 'PU Coating',
   },
@@ -92,10 +110,11 @@ export const products = [
       'Water Treatment Plants',
       'Transmission Towers',
     ],
+    coverImage: driveUrl('1qRgUO0s-NPf-J3HVmsr4ddY3GSjQROUx'),
     gallery: [
-      'https://images.unsplash.com/photo-1535581652167-3d6b9324a6e8?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop',
+      driveUrl('1qRgUO0s-NPf-J3HVmsr4ddY3GSjQROUx'),
+      driveUrl('18Q5vUUX1PlQZO5-rKBMT3UM5LH7Xfj89'),
+      driveUrl('1C52vUxuQT1x6OkF8PB-CzH95gyH_VskR'),
     ],
     category: 'Epoxy Coating',
   },
@@ -123,10 +142,11 @@ export const products = [
       'Textile Dyeing Units',
       'Research Laboratories',
     ],
+    coverImage: driveUrl('1oTp_i0RkkPzjtp5khkwE9PTzL2tZh4kH'),
     gallery: [
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
+      driveUrl('1oTp_i0RkkPzjtp5khkwE9PTzL2tZh4kH'),
+      driveUrl('1saC1x0Q2v2gKEAgJdk9lvkdk8b14UGLO'),
+      driveUrl('139rvH9L5ysvW2dgH-0sJBoN8EBBTphY-'),
     ],
     category: 'Epoxy Coating',
   },
@@ -154,12 +174,16 @@ export const products = [
       'Chemical Transfer Lines',
       'HVAC Piping',
     ],
+    coverImage: driveUrl('1xY3bbVHYIiaE7fvJ68zTnXmsSZOuwiiz'),
     gallery: [
-      'https://images.unsplash.com/photo-1535581652167-3d6b9324a6e8?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop',
+      driveUrl('1xY3bbVHYIiaE7fvJ68zTnXmsSZOuwiiz'),
+      driveUrl('1q1xaOKYfEgMjgPfdYY0gbJFZT_yNRZPk'),
+      driveUrl('1_gfv8Yli0zATCXN3tg9rlsQtehmlnXBY'),
+      driveUrl('1Cyuu-Z0TezikrSQNATnPfF5BEx_g7Vki'),
+      driveUrl('1_CJS8bR8jawdg8rKOFD0as3LbTpeBZ0r'),
+      driveUrl('15OKKA4iiC3DYFk8t7D5fCwoaE_2unGNY'),
     ],
-    category: 'Epoxy Coating',
+    category: 'Pipe Coating',
   },
   {
     slug: 'waterproofing',
@@ -185,23 +209,37 @@ export const products = [
       'Water Tanks',
       'Retaining Walls',
     ],
+    coverImage: driveUrl('1WX3sAnuPmXtDNHdVxHqrFMIYfabrOyiw'),
     gallery: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=800&auto=format&fit=crop',
+      driveUrl('1WX3sAnuPmXtDNHdVxHqrFMIYfabrOyiw'),
+      driveUrl('1GAMyV4b8d0J_ukGDM4yEu8Y23YSy-Vrq'),
+      driveUrl('12UZVuWy8DW1gYYwrA2MN5pyMeKSZjH1j'),
     ],
     category: 'Waterproofing',
   },
 ];
 
-export const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop', category: 'Epoxy Coating', title: 'Power Plant Epoxy Flooring' },
-  { src: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop', category: 'Epoxy Coating', title: 'Factory Floor Coating' },
-  { src: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=800&auto=format&fit=crop', category: 'Epoxy Coating', title: 'Warehouse Epoxy System' },
-  { src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop', category: 'PU Coating', title: 'External PU Application' },
-  { src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop', category: 'PU Coating', title: 'Roof PU Waterproofing' },
-  { src: 'https://images.unsplash.com/photo-1535581652167-3d6b9324a6e8?q=80&w=800&auto=format&fit=crop', category: 'PU Coating', title: 'Tank PU Coating' },
-  { src: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop', category: 'Waterproofing', title: 'Terrace Waterproofing' },
-  { src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800&auto=format&fit=crop', category: 'Waterproofing', title: 'Basement Waterproofing' },
-  { src: 'https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?q=80&w=800&auto=format&fit=crop', category: 'Waterproofing', title: 'Pool Waterproofing' },
+// Featured projects for Home page
+export const featuredProjects = [
+  {
+    id: 1,
+    name: 'Adani Pipe Coating',
+    category: 'Pipe Coating',
+    description: 'Complete internal pipe coating for Adani\'s industrial pipeline infrastructure, ensuring long-term corrosion protection.',
+    image: driveUrl('1q1xaOKYfEgMjgPfdYY0gbJFZT_yNRZPk'),
+  },
+  {
+    id: 2,
+    name: 'Chiller Plant Pipeline Project',
+    category: 'Pipe Coating',
+    description: 'Specialized pipeline coating for chiller plant systems, improving flow efficiency and preventing internal corrosion.',
+    image: driveUrl('1wo61TDstdHUuNU4_xk8Os_To_ElTHpQB'),
+  },
+  {
+    id: 3,
+    name: 'Industrial Epoxy Flooring',
+    category: 'Epoxy Coating',
+    description: 'High-performance self-leveling epoxy flooring for a large-scale manufacturing facility.',
+    image: driveUrl('1GZeW4TbXUnDYNIe2kiS2OUbpX1sWk0DP'),
+  },
 ];

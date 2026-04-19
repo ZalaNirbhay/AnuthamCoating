@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { icon: Target, value: '500+', label: 'Projects Completed' },
-  { icon: Award, value: '15+', label: 'Years Experience' },
+  { icon: Award, value: '5+', label: 'Years Experience' },
   { icon: Users, value: '200+', label: 'Happy Clients' },
   { icon: TrendingUp, value: '99%', label: 'Client Retention' },
 ];
@@ -72,10 +72,10 @@ const AboutSection = () => {
               center={false}
             />
             <p className="text-secondary text-lg leading-relaxed mb-6">
-              Established with a vision to redefine industrial protection, <strong className="text-primary">Anutham Coating PVT. LTD.</strong> has been at the forefront of advanced coating solutions for over 15 years. We specialize in safeguarding critical infrastructure across petrochemical, power, manufacturing, and marine industries.
+              <strong className="text-primary">Anutham Coating PVT. LTD.</strong> is a trusted name in industrial coating solutions, delivering superior protection for critical infrastructure across India. With 5+ years of dedicated expertise, we have earned the confidence of leading industrial players through consistent quality, technical excellence, and on-time project delivery.
             </p>
             <p className="text-secondary text-lg leading-relaxed mb-10">
-              Our ISO-certified processes, coupled with a team of seasoned coating engineers, ensure every project meets the highest standards of durability, safety, and performance. We don't just coat surfaces — we protect investments.
+              We specialize in epoxy flooring, pipe internal coating, anti-corrosion systems, and waterproofing — serving petrochemical, power, manufacturing, and infrastructure sectors. Our ISO-certified processes and skilled coating engineers ensure every project meets international standards of durability, safety, and performance.
             </p>
 
             {/* Stats Row */}
@@ -101,14 +101,15 @@ const AboutSection = () => {
           <div ref={imageRef} className="relative" style={{ opacity: 0 }}>
             <div className="absolute inset-0 bg-accent/20 rounded-2xl transform rotate-3 translate-x-3 translate-y-3"></div>
             <img
-              src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2670&auto=format&fit=crop"
+              src="https://lh3.googleusercontent.com/d/1lDXHltPuioKkvbtcBAM-Nn0bE2e6WWRC=w800"
               alt="Anutham Coating Industrial Operations"
               className="w-full h-auto rounded-2xl shadow-xl relative z-10 aspect-[4/3] object-cover"
               loading="lazy"
+              referrerPolicy="no-referrer"
             />
             {/* Badge */}
             <div className="absolute -bottom-6 -left-6 bg-primary text-white px-6 py-4 rounded-xl shadow-lg z-20 hidden md:block">
-              <div className="text-3xl font-bold text-accent">15+</div>
+              <div className="text-3xl font-bold text-accent">5+</div>
               <div className="text-sm text-gray-300">Years of Excellence</div>
             </div>
           </div>

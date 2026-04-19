@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
-import { WHATSAPP_URL, PHONE_NUMBER, PHONE_DISPLAY, EMAIL } from '../data/products';
+import { WHATSAPP_URL, PHONE_NUMBER, PHONE_DISPLAY, EMAIL, ADDRESS } from '../data/products';
 
 const Contact = () => {
   return (
@@ -58,8 +58,14 @@ const Contact = () => {
                     <MapPin size={24} />
                   </div>
                   <div>
-                     <p className="text-sm text-gray-400 mb-1 font-medium tracking-wide uppercase">Head Office</p>
-                     <p className="text-lg font-semibold leading-relaxed">123 Industrial Estate, Phase 3,<br />GIDC, Gujarat, India</p>
+                     <p className="text-sm text-gray-400 mb-1 font-medium tracking-wide uppercase">{ADDRESS.label}</p>
+                     <p className="text-sm font-medium leading-relaxed">
+                       {ADDRESS.line1}<br />
+                       {ADDRESS.line2}<br />
+                       {ADDRESS.line3}<br />
+                       {ADDRESS.line4}<br />
+                       {ADDRESS.line5}
+                     </p>
                   </div>
                 </div>
               </div>

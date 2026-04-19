@@ -61,10 +61,11 @@ const Products = () => {
                   {/* Image */}
                   <div className="aspect-[16/10] overflow-hidden relative">
                     <img
-                      src={product.gallery[0]}
+                      src={product.coverImage}
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>

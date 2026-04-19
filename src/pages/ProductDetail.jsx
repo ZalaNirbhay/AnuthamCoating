@@ -1,25 +1,61 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CheckCircle, ArrowLeft, MessageCircle, Phone, AlertTriangle, Lightbulb, BadgeCheck, MapPin } from 'lucide-react';
+import { CheckCircle, ArrowLeft, MessageCircle, Phone, AlertTriangle, Lightbulb, BadgeCheck, MapPin, ChevronLeft, ChevronRight, Home } from 'lucide-react';
 import { products, WHATSAPP_URL, PHONE_NUMBER, PHONE_DISPLAY } from '../data/products';
 
 const ProductDetail = () => {
   const { slug } = useParams();
   const product = products.find((p) => p.slug === slug);
+  const [selectedImage, setSelectedImage] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setSelectedImage(0);
   }, [slug]);
 
+  // Proper "Not Found" UI
   if (!product) {
     return (
-      <div className="pt-32 pb-20 min-h-screen flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold text-primary mb-4">Product Not Found</h1>
-        <Link to="/products" className="text-accent font-semibold hover:underline">← Back to Products</Link>
+      <div className="pt-32 pb-20 min-h-screen flex flex-col items-center justify-center bg-background">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center max-w-md mx-auto px-4"
+        >
+          <div className="w-20 h-20 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <AlertTriangle className="text-red-500" size={36} />
+          </div>
+          <h1 className="text-3xl font-bold text-primary mb-3">Product Not Found</h1>
+          <p className="text-secondary mb-8 leading-relaxed">
+            The product you&apos;re looking for doesn&apos;t exist or may have been moved. Please check the URL or browse our products.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              to="/products"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white font-bold rounded-xl hover:bg-orange-600 transition-colors"
+            >
+              <ArrowLeft size={18} /> View All Products
+            </Link>
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 text-primary font-bold rounded-xl hover:bg-gray-200 transition-colors"
+            >
+              <Home size={18} /> Go Home
+            </Link>
+          </div>
+        </motion.div>
       </div>
     );
   }
+
+  const handlePrevImage = () => {
+    setSelectedImage((prev) => (prev > 0 ? prev - 1 : product.gallery.length - 1));
+  };
+
+  const handleNextImage = () => {
+    setSelectedImage((prev) => (prev < product.gallery.length - 1 ? prev + 1 : 0));
+  };
 
   return (
     <div className="bg-background min-h-screen">
@@ -67,6 +103,80 @@ const ProductDetail = () => {
               </motion.a>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Product Image Gallery — Cover + Thumbnails */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+            {/* Main Preview Image */}
+            <div className="lg:col-span-3 relative group">
+              <motion.div
+                key={selectedImage}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="aspect-[16/10] rounded-2xl overflow-hidden shadow-xl bg-gray-100"
+              >
+                <img
+                  src={product.gallery[selectedImage]}
+                  alt={`${product.name} - Image ${selectedImage + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+
+              {/* Navigation Arrows */}
+              {product.gallery.length > 1 && (
+                <>
+                  <button
+                    onClick={handlePrevImage}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white backdrop-blur-sm shadow-md flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={handleNextImage}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white backdrop-blur-sm shadow-md flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </>
+              )}
+
+              {/* Image Counter */}
+              <div className="absolute bottom-4 right-4 bg-black/60 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm font-medium">
+                {selectedImage + 1} / {product.gallery.length}
+              </div>
+            </div>
+
+            {/* Thumbnail Grid */}
+            <div className="lg:col-span-2 grid grid-cols-3 lg:grid-cols-2 gap-3">
+              {product.gallery.map((img, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedImage(index)}
+                  className={`aspect-[4/3] rounded-xl overflow-hidden transition-all duration-200 ${
+                    selectedImage === index
+                      ? 'ring-3 ring-accent ring-offset-2 shadow-lg scale-[0.97]'
+                      : 'opacity-70 hover:opacity-100 hover:shadow-md'
+                  }`}
+                >
+                  <img
+                    src={img}
+                    alt={`${product.name} thumbnail ${index + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -145,7 +255,7 @@ const ProductDetail = () => {
             <div className="w-11 h-11 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
               <MapPin size={22} />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary">Where It's Used</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary">Where It&apos;s Used</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {product.applications.map((app, index) => (
@@ -158,32 +268,6 @@ const ProductDetail = () => {
                 className="bg-primary/5 rounded-xl p-5 text-center hover:bg-primary hover:text-white transition-all duration-300 cursor-default group"
               >
                 <span className="text-sm font-semibold text-primary group-hover:text-white transition-colors">{app}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Project Gallery */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-10">Project Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {product.gallery.map((img, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group aspect-[4/3] overflow-hidden rounded-xl shadow-md"
-              >
-                <img
-                  src={img}
-                  alt={`${product.name} project ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
               </motion.div>
             ))}
           </div>

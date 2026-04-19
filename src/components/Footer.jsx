@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ChevronRight, Clock, FileText } from 'lucide-react';
-import { WHATSAPP_URL, PHONE_NUMBER, PHONE_DISPLAY, EMAIL } from '../data/products';
+import { WHATSAPP_URL, PHONE_NUMBER, PHONE_DISPLAY, EMAIL, ADDRESS } from '../data/products';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -116,8 +116,12 @@ const Footer = () => {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium text-sm">Head Office</h4>
-                  <p className="text-sm mt-1 text-gray-400">123 Industrial Estate, Phase 3, GIDC, Gujarat, India</p>
+                  <h4 className="text-white font-medium text-sm">{ADDRESS.label}</h4>
+                  <p className="text-sm mt-1 text-gray-400 leading-relaxed">
+                    {ADDRESS.line1}<br />
+                    {ADDRESS.line4}<br />
+                    {ADDRESS.line5}
+                  </p>
                 </div>
               </li>
               <li className="flex items-center gap-4">
