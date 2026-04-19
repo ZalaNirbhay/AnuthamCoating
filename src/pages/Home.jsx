@@ -21,9 +21,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   const projectsRef = useRef(null);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
+
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -179,9 +178,10 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredProjects.map((project) => (
-              <div
+              <Link
+                to="/gallery"
                 key={project.id}
-                className="project-card group relative overflow-hidden rounded-xl shadow-lg aspect-[4/3] cursor-pointer"
+                className="project-card group relative overflow-hidden rounded-xl shadow-lg aspect-[4/3] cursor-pointer block"
                 style={{ opacity: 0 }}
               >
                 <img
@@ -204,7 +204,7 @@ const Home = () => {
                   <span className="text-accent text-xs font-semibold uppercase tracking-wider">{project.category}</span>
                   <h3 className="text-white text-lg font-bold mt-1">{project.name}</h3>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -220,7 +220,7 @@ const Home = () => {
       <BenefitsSection />
 
       {/* 9. WHY CHOOSE US */}
-      <section className="py-24 bg-primary text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-primary text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
 
@@ -263,8 +263,8 @@ const Home = () => {
             >
               <div className="absolute inset-0 bg-accent rounded-2xl transform rotate-3 translate-x-3 translate-y-3 opacity-50"></div>
               <img
-                src="https://lh3.googleusercontent.com/d/1GZeW4TbXUnDYNIe2kiS2OUbpX1sWk0DP=w800"
-                alt="Anutham Coating Industrial Operations"
+                src="https://lh3.googleusercontent.com/d/1q1xaOKYfEgMjgPfdYY0gbJFZT_yNRZPk=w800"
+                alt="Anutham Coating — Industrial Pipe Coating Operations"
                 className="w-full rounded-2xl shadow-2xl relative z-10 aspect-[4/3] object-cover"
                 loading="lazy"
                 referrerPolicy="no-referrer"

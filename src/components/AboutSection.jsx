@@ -101,8 +101,8 @@ const AboutSection = () => {
           <div ref={imageRef} className="relative" style={{ opacity: 0 }}>
             <div className="absolute inset-0 bg-accent/20 rounded-2xl transform rotate-3 translate-x-3 translate-y-3"></div>
             <img
-              src="https://lh3.googleusercontent.com/d/1lDXHltPuioKkvbtcBAM-Nn0bE2e6WWRC=w800"
-              alt="Anutham Coating Industrial Operations"
+              src="https://lh3.googleusercontent.com/d/1xY3bbVHYIiaE7fvJ68zTnXmsSZOuwiiz=w800"
+              alt="Anutham Coating — Pipe Internal Coating Operations"
               className="w-full h-auto rounded-2xl shadow-xl relative z-10 aspect-[4/3] object-cover"
               loading="lazy"
               referrerPolicy="no-referrer"

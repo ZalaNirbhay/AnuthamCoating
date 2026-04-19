@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://anuthamcoating.com/sitemap.xml
+
+# Disallow admin/private paths
+Disallow: /api/
