@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ChevronRight, Clock, FileText } from 'lucide-react';
+import { Instagram, Mail, Phone, MapPin, ChevronRight, Clock, FileText } from 'lucide-react';
 import { WHATSAPP_URL, PHONE_NUMBER, PHONE_DISPLAY, EMAIL, ADDRESS } from '../data/products';
+
+const INSTAGRAM_URL = 'https://www.instagram.com/anutham_cotings_pvt_ltd?igsh=MW1mczhkNXp5azFxeA==';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,7 +34,7 @@ const Footer = () => {
               Anutham <span className="text-accent">Coating</span>
             </h2>
             <p className="text-gray-400 leading-relaxed text-sm">
-              Leading provider of industrial coating solutions. Protecting your infrastructure with advanced technology and expert craftsmanship since 2010.
+              Leading provider of industrial coating solutions. Protecting your infrastructure with advanced technology and expert craftsmanship.
             </p>
 
             {/* Working Hours */}
@@ -44,21 +46,17 @@ const Footer = () => {
               </div>
             </div>
 
+            {/* Social — Instagram Only */}
             <div className="flex gap-3 pt-2">
-              {[
-                { Icon: Facebook, href: '#' },
-                { Icon: Twitter, href: '#' },
-                { Icon: Linkedin, href: '#' },
-                { Icon: Instagram, href: '#' },
-              ].map(({ Icon, href }, index) => (
-                <a
-                  key={index}
-                  href={href}
-                  className="w-10 h-10 rounded-lg bg-gray-800/80 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 text-gray-400"
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-gray-800/80 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] hover:text-white transition-all duration-300 text-gray-400"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram size={18} />
+              </a>
             </div>
           </div>
 

@@ -259,18 +259,18 @@ const Home = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative max-w-lg mx-auto lg:mx-0"
             >
-              <div className="absolute inset-0 bg-accent rounded-2xl transform rotate-3 translate-x-4 translate-y-4 opacity-50"></div>
+              <div className="absolute inset-0 bg-accent rounded-2xl transform rotate-3 translate-x-3 translate-y-3 opacity-50"></div>
               <img
                 src="https://lh3.googleusercontent.com/d/1GZeW4TbXUnDYNIe2kiS2OUbpX1sWk0DP=w800"
                 alt="Anutham Coating Industrial Operations"
-                className="w-full h-auto rounded-2xl shadow-2xl relative z-10"
+                className="w-full rounded-2xl shadow-2xl relative z-10 aspect-[4/3] object-cover"
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
 
-              <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-xl shadow-xl z-20 hidden md:block max-w-xs">
+              <div className="absolute -bottom-8 -left-4 sm:-bottom-10 sm:-left-10 bg-white p-5 sm:p-6 rounded-xl shadow-xl z-20 hidden md:block max-w-[260px]">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (

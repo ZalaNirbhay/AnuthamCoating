@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight, MessageCircle } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WHATSAPP_URL } from '../data/products';
 
@@ -9,12 +9,16 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // Only the home page starts transparent; all other pages get a solid bg immediately
+  const isHomePage = location.pathname === '/';
+
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // check on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -22,6 +26,11 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
+  // Navbar should be solid dark on:
+  //  - any page that isn't Home
+  //  - Home page once scrolled past 20px
+  const isSolid = !isHomePage || scrolled;
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -34,7 +43,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
+        isSolid
           ? 'bg-primary/95 backdrop-blur-md shadow-lg py-3'
           : 'bg-transparent py-5'
       }`}
@@ -81,6 +90,7 @@ const Navbar = () => {
         <button
           className="lg:hidden text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
